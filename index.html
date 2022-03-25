@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="./scss/main.css" />
+    <script src="./script.js" defer></script>
+    <title>Tip calculator app</title>
+  </head>
+  <body>
+    <div class="logo">
+      <img src="./images/logo.svg" alt="SPLITTER" />
+    </div>
+    <div class="calculator">
+      <div class="container">
+        <section class="input-section">
+          <div class="input-section__bill">
+            <label for="bill-input">Bill</label>
+            <input type="text" id="bill-input" placeholder="0" size="1" />
+          </div>
+          <div class="input-section__tip">
+            <label for="">Select Tip %</label>
+            <div class="tip-grid">
+              <button class="tip-grid__button">5%</button>
+              <button class="tip-grid__button">10%</button>
+              <button class="tip-grid__button">15%</button>
+              <button class="tip-grid__button">25%</button>
+              <button class="tip-grid__button">50%</button>
+              <input
+                type="text"
+                placeholder="Custom"
+                size="1"
+                id="custom-tip"
+              />
+            </div>
+          </div>
+          <div class="input-section__people">
+            <label for="people-input">Number of People</label>
+            <input type="text" id="people-input" placeholder="0" size="1" />
+          </div>
+        </section>
+
+        <section class="output-section">
+          <div class="output-section__tip">
+            <div class="tip-text">
+              <p>Tip Amount</p>
+              <p class="per">/ person</p>
+            </div>
+            <p class="tip-output total"></p>
+          </div>
+          <div class="output-section__total">
+            <div class="total-text">
+              <p>Total</p>
+              <p class="per">/ person</p>
+            </div>
+            <p class="tip-output total"></p>
+          </div>
+          <div class="output-section__reset">
+            <button class="reset-button">Reset</button>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>

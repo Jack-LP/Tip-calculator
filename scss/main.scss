@@ -1,0 +1,180 @@
+@import "variables";
+@import "mixins";
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+img {
+  max-width: 100%;
+}
+
+body {
+  background-color: $lightGreyCyan;
+  font-family: $bodyFont;
+  font-weight: $medWeight;
+  font-size: $bodySize;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 0;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.btn-active {
+  background-color: $strongCyan !important;
+}
+
+.calculator {
+  background-color: $white;
+  width: min(100%, 95rem);
+  border-radius: 2rem;
+}
+
+.container {
+  padding: 3rem;
+  display: grid;
+  row-gap: 3rem;
+}
+
+.input-section {
+  display: grid;
+  row-gap: 3rem;
+  &__bill {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    input {
+      @include input;
+    }
+  }
+  &__tip {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    .tip-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 1rem;
+      &__button {
+        @include button;
+      }
+      input {
+        background-color: $veryLightGreyCyan;
+        outline: none;
+        border: none;
+        font-family: $bodyFont;
+        font-weight: $medWeight;
+        color: $veryDarkCyan;
+        font-size: 2rem;
+        text-align: center;
+        border-radius: 0.6rem;
+      }
+    }
+  }
+  &__people {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    input {
+      @include input;
+      background: url(../images/icon-person.svg) no-repeat scroll 2rem 2rem
+        $veryLightGreyCyan;
+    }
+  }
+  label {
+    @include label;
+  }
+}
+
+.output-section {
+  background-color: $veryDarkCyan;
+  padding: 3rem 2rem;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  // justify-content: flex-start;
+  &__tip {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    .tip-text {
+      @include subtext;
+    }
+  }
+  &__total {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    .total-text {
+      @include subtext;
+    }
+  }
+  &__reset {
+    .reset-button {
+      @include button;
+      background-color: $strongCyan;
+      color: $veryDarkCyan;
+      width: 100%;
+    }
+  }
+  .per {
+    color: $greyCyan;
+  }
+  .tip-output {
+    color: $strongCyan;
+    font-size: 3.5rem;
+    font-weight: $medWeight;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  body {
+    gap: 9rem;
+  }
+  .container {
+    padding: 4rem;
+    gap: 6rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .input-section {
+    &__tip {
+      .tip-grid {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+      }
+    }
+  }
+  .output-section {
+    padding: 4rem;
+    &__reset {
+      margin-top: auto;
+      .reset-button {
+        @include button;
+        background-color: $strongCyan;
+        color: $veryDarkCyan;
+        width: 100%;
+      }
+    }
+    .tip-output {
+      font-size: 4rem;
+    }
+  }
+}
